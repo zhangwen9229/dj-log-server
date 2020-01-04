@@ -13,6 +13,15 @@ export default (appInfo: EggAppInfo) => {
     }
   };
 
+  exports.io = {
+    init: { }, // passed to engine.io
+    namespace: {
+      '/': {
+        connectionMiddleware: [],
+        packetMiddleware: [],
+      }
+    },
+  };
 
   // add your egg config in here
   config.middleware = [];
