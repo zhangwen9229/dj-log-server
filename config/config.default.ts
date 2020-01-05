@@ -13,11 +13,11 @@ export default (appInfo: EggAppInfo) => {
     }
   };
 
-  exports.io = {
+  config.io = {
     init: { }, // passed to engine.io
     namespace: {
       '/': {
-        connectionMiddleware: [],
+        connectionMiddleware: [ 'connection' ],
         packetMiddleware: [],
       }
     },
