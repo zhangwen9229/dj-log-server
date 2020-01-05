@@ -1,9 +1,11 @@
+
 import { Controller } from 'egg';
 declare module 'egg' {
     interface CustomController {
         nsp: NspController;
     }
 }
+
 
 class NspController extends Controller {
     async exchange() {

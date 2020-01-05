@@ -1,10 +1,19 @@
 import { Controller } from 'egg';
+import { LOG_ROOM } from '../../db/datas';
 
 export default class LogController extends Controller {
     public async index() {
         const { ctx } = this;
         console.log(ctx.request.body);
         ctx.body = await ctx.service.test.sayHi('egg');
+
+        const nsp = this.app.io.of('/');
+        console.log(nsp);
+        (nsp as any).to(LOG_ROOM).emit('res', {
+          action: 'join',
+          target: 'participator',
+          message: `User joined.`,
+        });
     }
 
     async create() {
