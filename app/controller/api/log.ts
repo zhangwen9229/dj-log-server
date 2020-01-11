@@ -40,7 +40,6 @@ export default class LogController extends Controller {
     console.log('---------- ctx.ips - - -- - - - -- ');
     console.log(ctx.ip);
     console.log(ctx.ips);
-    (nsp as any).to(LOG_ROOM).emit('res', msg);
-    (nsp as any).to(LOG_ROOM).emit('res', msg);
+    (nsp as any).to(LOG_ROOM).emit(' log', msg);
   }
 }
