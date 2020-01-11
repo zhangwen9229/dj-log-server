@@ -38,8 +38,9 @@ export default class LogController extends Controller {
       clientIps: ctx.ips.length === 0 ? [ ctx.ip ] : ctx.ips
     };
     console.log('---------- ctx.ips - - -- - - - -- ');
+    console.log(msg);
     console.log(ctx.ip);
     console.log(ctx.ips);
-    (nsp as any).to(LOG_ROOM).emit(' log', msg);
+    (nsp as any).to(LOG_ROOM).emit('log', msg);
   }
 }
