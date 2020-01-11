@@ -13,8 +13,15 @@ export default (appInfo: EggAppInfo) => {
     }
   };
 
+  config.cors = {
+    // {string|Function} origin: '*',
+    // {string|Array} allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
   config.io = {
-    init: { }, // passed to engine.io
+    init: {}, // passed to engine.io
     namespace: {
       '/': {
         connectionMiddleware: [ 'connection' ],

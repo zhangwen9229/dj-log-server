@@ -19,7 +19,7 @@ class NspController extends Controller {
             const { target, payload } = message;
             if (!target) return;
             const msg = ctx.helper.parseMsg('exchange', payload, { client, target });
-            console.log(msg);
+
             // this.ctx.socket.emit(target, msg);
             await ctx.socket.emit('res', msg);
         } catch (error) {

@@ -2,9 +2,7 @@ import { ALL_SocketIDs, LOG_ROOM } from '../../db/datas';
 
 // {app_root}/app/io/middleware/connection.js
 
-module.exports = app => {
-
-    console.log(app);
+module.exports = _app => {
     return async (ctx, next) => {
         console.log('----------');
         console.log(ctx.socket.id);
