@@ -7,7 +7,7 @@ export default class LogController extends Controller {
     const { ctx } = this;
     // const nsp = this.app.io.of('/');
     // console.log(ctx.request.body);
-    ctx.body = await ctx.service.test.sayHi('egg');
+    ctx.body = await ctx.service.test.sayHi(`走错地方了~~~ ！`);
 
   }
 
