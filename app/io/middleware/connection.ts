@@ -1,11 +1,12 @@
 import { ALL_SocketIDs, LOG_ROOM } from '../../db/datas';
+import { emitChangePersonSize } from '../business';
 
 // {app_root}/app/io/middleware/connection.js
 
 module.exports = _app => {
     return async (ctx, next) => {
-        console.log('----------');
-        console.log(ctx.socket.id);
+        // console.log('----------');
+        // console.log(ctx.socket.id);
         // setTimeout(() => {
         // setTimeout(() => {
         // await ctx.socket.emit('res', 'test');
@@ -14,11 +15,13 @@ module.exports = _app => {
 
         // }, 200);
         ALL_SocketIDs.set(ctx.socket.id, { roomName: LOG_ROOM });
-        
-        await ctx.socket.emit('changePersonSize', ALL_SocketIDs.size);
 
-        ctx.socket.join(LOG_ROOM);
+        emitChangePersonSize(_app, ALL_SocketIDs.size);
 
+        // const nsp = _app.io.of('/');
+        // ctx.socket.join(LOG_ROOM);
+        // (nsp as any).to(LOG_ROOM).emit('changePersonSize', ALL_SocketIDs.size);
+        // await ctx.socket.emit('changePersonSize', ALL_SocketIDs.size);
         await next();
 
         console.log('disconnection 离开了')
