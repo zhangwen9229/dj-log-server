@@ -26,7 +26,7 @@ module.exports = _app => {
 
         console.log('disconnection 离开了')
         ALL_SocketIDs.delete(ctx.socket.id);
-        ctx.socket.emit('changePersonSize', ALL_SocketIDs.size)
+        setTimeout(() => emitChangePersonSize(_app, ALL_SocketIDs.size), 20);
         // execute when disconnect.
         console.log('disconnection!');
     };
