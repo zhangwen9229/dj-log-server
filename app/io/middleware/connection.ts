@@ -16,9 +16,8 @@ module.exports = _app => {
         // }, 200);
         ALL_SocketIDs.set(ctx.socket.id, { roomName: LOG_ROOM });
         await ctx.socket.join(LOG_ROOM);
-        
-        console.log(ctx.socket);
-        await emitChangePersonSize(_app, ALL_SocketIDs.size);
+
+        setTimeout(() => emitChangePersonSize(_app, ALL_SocketIDs.size), 20 );
 
         // const nsp = _app.io.of('/');
         // (nsp as any).to(LOG_ROOM).emit('changePersonSize', ALL_SocketIDs.size);
