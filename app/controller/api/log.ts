@@ -1,6 +1,7 @@
 import { Controller } from 'egg';
 import { LOG_ROOM } from '../../db/datas';
 import * as dayjs from 'dayjs';
+import { processMtaLog } from '../business/Mta';
 
 export default class LogController extends Controller {
   public async index() {
@@ -38,8 +39,11 @@ export default class LogController extends Controller {
       clientIps: ctx.ips.length === 0 ? [ ctx.ip ] : ctx.ips
     };
 
+    if(ctx.request.body.extra.djType === 'mta') {
+      processMtaLog(ctx.request.body)
+      // return
+    }
 
-    
     console.log('---------- ctx.ips - - -- - - - -- ');
     console.log(msg);
     console.log(ctx.ip);
