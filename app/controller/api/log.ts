@@ -37,6 +37,9 @@ export default class LogController extends Controller {
       errorTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
       clientIps: ctx.ips.length === 0 ? [ ctx.ip ] : ctx.ips
     };
+
+
+    
     console.log('---------- ctx.ips - - -- - - - -- ');
     console.log(msg);
     console.log(ctx.ip);
