@@ -16,12 +16,12 @@ class NspController extends Controller {
         const client = socket.id;
 
         try {
-            const { target, payload } = message;
-            if (!target) return;
-            const msg = ctx.helper.parseMsg('exchange', payload, { client, target });
+            const { payload } = message;
+            // if (!target) return;
+            const msg = ctx.helper.parseMsg('dosomething-you-deel', payload, { });
 
             // this.ctx.socket.emit(target, msg);
-            await ctx.socket.emit('res', msg);
+            await ctx.socket.emit(client, msg);
         } catch (error) {
             app.logger.error(error);
         }

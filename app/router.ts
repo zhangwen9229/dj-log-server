@@ -6,6 +6,8 @@ export default (app: Application) => {
 
   router.get('/', controller.home.index);
 
+  router.get('/auth/canReport', controller.api.auth.canReport);
+
   // router.get('/api/log', controller.api.log.index);
   router.resources('log', '/api/log', controller.api.log);
 
