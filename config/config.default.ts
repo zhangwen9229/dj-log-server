@@ -30,6 +30,8 @@ export default (appInfo: EggAppInfo) => {
     },
   };
 
+  config.proxy = true;
+
   // add your egg config in here
   config.middleware = [];
 

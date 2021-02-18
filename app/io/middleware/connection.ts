@@ -10,7 +10,7 @@ module.exports = _app => {
         // setTimeout(() => {
         // setTimeout(() => {
         // await ctx.socket.emit('res', 'test');
-        ctx.socket.emit('connected', 'connected!');
+        ctx.socket.emit('ShakeHandsWithServer', '欢迎使用日志监控系统！');
         // }, 0);
 
         // }, 200);
