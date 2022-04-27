@@ -43,6 +43,12 @@ export default class LogController extends Controller {
       processMtaLog(nsp, ctx.request.body)
       return
     }
+    const strMsg = ctx.request.body.msg;
+    if(typeof strMsg  === 'string') {
+      if(strMsg.startsWith('Possible Unhandled Promise Rejection') && strMsg.length < 48){
+        return;
+      }
+    }
 
     console.log('---------- ctx.ips - - -- - - - -- ');
     console.log(msg);
